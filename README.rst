@@ -3,7 +3,7 @@
 ==============
 
 This is my Emacs configuration. It supports various config formats and adds
-advanced support for several languages through `lsp-mode`_
+advanced support for several languages through `lsp-mode`_ . PR's are welcome!
 
 .. _lsp-mode: https://github.com/emacs-lsp/lsp-mode
 
@@ -17,6 +17,14 @@ packages are installed.
 .. code-block:: shell
 
    $ git clone https://github.com/lukapeschke/emacs-config ~/.emacs.d
+
+Updating
+========
+
+.. code-block:: shell
+
+   $ cd ~/.emacs.d
+   $ git pull
 
 Supported languages
 ===================
