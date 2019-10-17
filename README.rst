@@ -35,7 +35,10 @@ Supported languages
 
 * Go. Depends on gopls_ .
 
+* Elixir. Depends on ElixirLS_ .
+
 .. _pylint: https://www.pylint.org/
 .. _pyls: https://github.com/palantir/python-language-server
 .. _rls: https://github.com/rust-lang/rls
 .. _gopls: https://github.com/golang/tools/blob/master/gopls/doc/user.md
+.. _ElixirLS: https://github.com/JakeBecker/elixir-ls
