@@ -100,6 +100,9 @@
 (add-to-list 'auto-mode-alist '("\\.rst\\'" . rst-mode))
 
 
+;; Enable indentation highlighting in python
+(add-hook 'python-mode-hook 'highlight-indentation-mode)
+
 ;; START -- Support for Language Server Protocol (LSP)
 (use-package lsp-mode
   :config
