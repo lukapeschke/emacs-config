@@ -112,6 +112,8 @@
   (add-hook 'python-mode-hook #'lsp)
   (add-hook 'rust-mode-hook #'lsp)
   (add-hook 'go-mode-hook #'lsp)
+  ;; "language_server.sh" is assumed to be available in $PATH
+  (add-hook 'elixir-mode-hook #'lsp)
   )
 
 ;; lsp-ui allows (between other things) to display linter errors inline
@@ -152,10 +154,6 @@
   (setq company-transformers nil
         company-lsp-async t
         company-lsp-cache-candidates nil))
-
-;; Enable LSP for elixir.
-;; "language_server.sh" is assumed to be available in $PATH
-(add-hook 'elixir-mode-hook #'lsp)
 
 ;; END -- Support for Language Server Protocol (LSP)
 (custom-set-variables
