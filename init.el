@@ -179,3 +179,11 @@
  '(rst-level-1 ((t (:background "color-239"))))
  '(rst-level-2 ((t (:background "color-239"))))
  '(rst-level-3 ((t (:background "color-239")))))
+
+
+;; golang
+(add-to-list 'exec-path "~/.local/bin/")
+(add-to-list 'exec-path "~/go/bin/")
+
+(setq gofmt-command "goimports")
+(add-hook 'before-save-hook 'gofmt-before-save)

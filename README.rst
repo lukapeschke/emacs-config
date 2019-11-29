@@ -33,7 +33,7 @@ Supported languages
 
 * Rust. Depends on rls_ .
 
-* Go. Depends on gopls_ .
+* Go. Depends on gopls_ and ``goimports``.
 
 * Elixir. Depends on ElixirLS_ .
 
