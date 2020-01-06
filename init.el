@@ -12,8 +12,9 @@
 (defvar my-packages
   '(company company-lsp dockerfile-mode dockerfile-mode drag-stuff elixir-mode
             flycheck go-mode gnu-elpa-keyring-update highlight-indentation
-            jinja2-mode lsp-mode lsp-ui rainbow-delimiters rust-mode
-            terraform-mode tangotango-theme use-package whitespace yaml-mode)
+            jinja2-mode lsp-mode lsp-ui protobuf-mode rainbow-delimiters
+            rust-mode terraform-mode tangotango-theme use-package whitespace
+            yaml-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun my-packages-installed-p ()
@@ -169,7 +170,7 @@
     ("713f898dd8c881c139b62cf05b7ac476d05735825d49006255c0a31f9a4f46ab" default)))
  '(package-selected-packages
    (quote
-    (elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company))))
+    (protobuf-mode elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
