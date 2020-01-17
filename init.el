@@ -186,6 +186,9 @@
 ;; golang
 (add-to-list 'exec-path "~/.local/bin/")
 (add-to-list 'exec-path "~/go/bin/")
+(add-to-list 'exec-path "~/.cargo/bin/")
 
 (setq gofmt-command "goimports")
 (add-hook 'before-save-hook 'gofmt-before-save)
+
+(setq rust-format-on-save t)
