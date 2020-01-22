@@ -10,8 +10,8 @@
 ;; checking that use-package is installed:
 
 (defvar my-packages
-  '(company company-lsp dockerfile-mode dockerfile-mode drag-stuff elixir-mode
-            flycheck gnu-elpa-keyring-update go-mode groovy-mode
+  '(blacken company company-lsp dockerfile-mode dockerfile-mode drag-stuff
+            elixir-mode flycheck gnu-elpa-keyring-update go-mode groovy-mode
             highlight-indentation jinja2-mode lsp-mode lsp-ui protobuf-mode
             rainbow-delimiters rust-mode terraform-mode tangotango-theme
             use-package whitespace yaml-mode)
@@ -103,6 +103,9 @@
 
 ;; Enable indentation highlighting in python
 (add-hook 'python-mode-hook 'highlight-indentation-mode)
+;; Enable black formatting in python
+(add-hook 'python-mode-hook 'blacken-mode)
+(setq blacken-line-length 80)
 
 ;; START -- Support for Language Server Protocol (LSP)
 (use-package lsp-mode
@@ -171,7 +174,7 @@
  '(groovy-indent-offset 2)
  '(package-selected-packages
    (quote
-    (groovy-mode protobuf-mode elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company))))
+    (blacken groovy-mode protobuf-mode elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -29,7 +29,8 @@ Updating
 Supported languages
 ===================
 
-* Python. Depends on pylint_ and pyls_ .
+* Python. Depends on pylint_ and pyls_ . You can optionally install black_ ,
+  which will format your python code on save.
 
 * Rust. Depends on rls_ .
 
@@ -39,6 +40,7 @@ Supported languages
 
 .. _pylint: https://www.pylint.org/
 .. _pyls: https://github.com/palantir/python-language-server
+.. _black: https://github.com/psf/black
 .. _rls: https://github.com/rust-lang/rls
 .. _gopls: https://github.com/golang/tools/blob/master/gopls/doc/user.md
 .. _ElixirLS: https://github.com/JakeBecker/elixir-ls
