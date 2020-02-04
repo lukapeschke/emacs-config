@@ -128,6 +128,7 @@
 
   (setq lsp-prefer-flymake nil ;; Prefer using lsp-ui (flycheck) over flymake.
         lsp-enable-snippet nil ;; Disable Yasnippet
+        lsp-pyls-plugins-pylint-enabled t
         )
 
   ;; add your languages here
