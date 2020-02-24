@@ -28,8 +28,8 @@
   '(blacken company company-lsp dockerfile-mode dockerfile-mode drag-stuff
             elixir-mode flycheck gnu-elpa-keyring-update go-mode groovy-mode
             highlight-indentation jinja2-mode lsp-mode lsp-ui protobuf-mode
-            rainbow-delimiters rust-mode terraform-mode tangotango-theme
-            use-package whitespace yaml-mode)
+            rainbow-delimiters rust-mode sbt-mode scala-mode terraform-mode
+            tangotango-theme use-package whitespace yaml-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun my-packages-installed-p ()
@@ -122,6 +122,32 @@
 (add-hook 'python-mode-hook 'blacken-mode)
 (setq blacken-line-length 80)
 
+
+;; SETTING PATH
+;; golang
+(add-to-list 'exec-path "~/go/bin/")
+;; python
+(add-to-list 'exec-path "~/.local/bin/")
+;; rust
+(add-to-list 'exec-path "~/.cargo/bin/")
+;; custom build language servers
+(add-to-list 'exec-path "~/bin/")
+;; END OF SETTING PATH
+
+;; ON SAVE HOOKS
+;; golang
+(setq gofmt-command "goimports")
+(add-hook 'before-save-hook 'gofmt-before-save)
+;; rust
+(setq rust-format-on-save t)
+;; END OF ON SAVE HOOKS
+
+;; Not a save hook because it is too slow.
+(defun run-scalafmt ()
+  (interactive)
+  (when (eq major-mode 'scala-mode)
+    (shell-command-on-region (point-min) (point-max) "~/bin/scalafmt --stdin --non-interactive --quiet" t t)))
+
 ;; START -- Support for Language Server Protocol (LSP)
 (use-package lsp-mode
   :config
@@ -137,6 +163,8 @@
   (add-hook 'go-mode-hook #'lsp)
   ;; "language_server.sh" is assumed to be available in $PATH
   (add-hook 'elixir-mode-hook #'lsp)
+  ;; "metals" is assumed to be available in $PATH
+  (add-hook 'scala-mode-hook #'lsp)
   )
 
 ;; lsp-ui allows (between other things) to display linter errors inline
@@ -179,6 +207,10 @@
         company-lsp-cache-candidates nil))
 
 ;; END -- Support for Language Server Protocol (LSP)
+
+
+
+;; CUSTOMIZATION
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -190,7 +222,7 @@
  '(groovy-indent-offset 2)
  '(package-selected-packages
    (quote
-    (blacken groovy-mode protobuf-mode elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company))))
+    (sbt-mode scala-mode blacken groovy-mode protobuf-mode elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -200,14 +232,3 @@
  '(rst-level-1 ((t (:background "color-239"))))
  '(rst-level-2 ((t (:background "color-239"))))
  '(rst-level-3 ((t (:background "color-239")))))
-
-
-;; golang
-(add-to-list 'exec-path "~/.local/bin/")
-(add-to-list 'exec-path "~/go/bin/")
-(add-to-list 'exec-path "~/.cargo/bin/")
-
-(setq gofmt-command "goimports")
-(add-hook 'before-save-hook 'gofmt-before-save)
-
-(setq rust-format-on-save t)
