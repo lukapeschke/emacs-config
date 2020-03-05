@@ -115,6 +115,10 @@
 (require 'rst)
 (add-to-list 'auto-mode-alist '("\\.rst\\'" . rst-mode))
 
+;; Enable mhtml-mode for .html files
+(require 'rst)
+(add-to-list 'auto-mode-alist '("\\.html\\'" . mhtml-mode))
+
 
 ;; Enable indentation highlighting in python
 (add-hook 'python-mode-hook 'highlight-indentation-mode)
