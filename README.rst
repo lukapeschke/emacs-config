@@ -44,3 +44,21 @@ Supported languages
 .. _rls: https://github.com/rust-lang/rls
 .. _gopls: https://github.com/golang/tools/blob/master/gopls/doc/user.md
 .. _ElixirLS: https://github.com/JakeBecker/elixir-ls
+
+
+Notes
+=====
+
+Python virtualenvs
+++++++++++++++++++
+
+In case you're using vanilla virtualenvs like me, I use the following hack. If
+you're using pyenv, I believe there's native support in pyls for that.
+
+1. Run ``M-x pyvenv-activate`` (or ``M-x pyvenv-workon`` if you use
+   virtualenvwrapper) in emacs and activate the desired venv.
+
+2. In a shell, run `kill pyls` (you can add your favourite signal).
+
+3. Emacs should prompt you to restart pyls. Restart it and your venv should be
+   taken into account. You're done :-)

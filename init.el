@@ -28,7 +28,7 @@
   '(blacken company dockerfile-mode dockerfile-mode drag-stuff
             elixir-mode flycheck gnu-elpa-keyring-update go-mode groovy-mode
             highlight-indentation jinja2-mode lsp-mode lsp-ui protobuf-mode
-            rainbow-delimiters rainbow-mode rust-mode sbt-mode scala-mode
+            pyvenv rainbow-delimiters rainbow-mode rust-mode sbt-mode scala-mode
             terraform-mode tangotango-theme use-package whitespace yaml-mode)
   "A list of packages to ensure are installed at launch.")
 
@@ -217,7 +217,7 @@
  '(groovy-indent-offset 2)
  '(package-selected-packages
    (quote
-    (rainbow-mode sbt-mode scala-mode blacken groovy-mode protobuf-mode elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company))))
+    (pyvenv rainbow-mode sbt-mode scala-mode blacken groovy-mode protobuf-mode elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
