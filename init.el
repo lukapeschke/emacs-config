@@ -25,7 +25,7 @@
 ;; checking that use-package is installed:
 
 (defvar my-packages
-  '(blacken company company-lsp dockerfile-mode dockerfile-mode drag-stuff
+  '(blacken company dockerfile-mode dockerfile-mode drag-stuff
             elixir-mode flycheck gnu-elpa-keyring-update go-mode groovy-mode
             highlight-indentation jinja2-mode lsp-mode lsp-ui protobuf-mode
             rainbow-delimiters rainbow-mode rust-mode sbt-mode scala-mode
@@ -157,6 +157,7 @@
   :config
 
   (setq lsp-prefer-flymake nil ;; Prefer using lsp-ui (flycheck) over flymake.
+        lsp-prefer-capf t ;; use company-capf
         lsp-enable-snippet nil ;; Disable Yasnippet
         lsp-pyls-plugins-pylint-enabled t
         )
@@ -180,7 +181,7 @@
         lsp-ui-doc-use-childframe t
         lsp-ui-doc-position 'top
         lsp-ui-doc-include-signature t
-        lsp-ui-sideline-enable nil
+        lsp-ui-sideline-enable t
         lsp-ui-flycheck-enable t
         lsp-ui-flycheck-list-position 'right
         lsp-ui-flycheck-live-reporting t
@@ -193,23 +194,13 @@
 ;; using company for auto-completion
 (use-package company
   :config
-  (setq company-idle-delay 0.3)
+  (setq company-idle-delay 0.0
+        company-minimum-prefix-length 1
+        company-capt t)
 
   (global-company-mode 1)
 
   (global-set-key (kbd "C-<tab>") 'company-complete))
-
-;; integration of company with lsp
-(use-package company-lsp
-  :requires company
-  :config
-  (push 'company-lsp company-backends)
-
-   ;; Disable client-side cache because the LSP server does a better job.
-  (setq company-transformers nil
-        company-lsp-async t
-        company-lsp-cache-candidates nil))
-
 ;; END -- Support for Language Server Protocol (LSP)
 
 
