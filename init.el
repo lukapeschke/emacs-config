@@ -96,7 +96,7 @@
 ;; allows to drag a selected area around
 (require 'drag-stuff)
 
-;; keybindings to toggle functions, use CTRL and arrow keys
+;; keybindings to move stuff around, use Meta (alt) and arrow keys
 (global-set-key (kbd "<M-up>")    'drag-stuff-up)
 (global-set-key (kbd "<M-down>")  'drag-stuff-down)
 (global-set-key (kbd "<M-left>")  'drag-stuff-left)
