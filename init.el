@@ -138,12 +138,13 @@
 (add-to-list 'exec-path "~/bin/")
 ;; END OF SETTING PATH
 
-;; ON SAVE HOOKS
+;; PER-LANGUAGE CONFIG & ON SAVE HOOKS
 ;; golang
 (setq gofmt-command "goimports")
 (add-hook 'before-save-hook 'gofmt-before-save)
 ;; rust
 (setq rust-format-on-save t)
+(setq lsp-rust-server 'rust-analyzer)
 ;; END OF ON SAVE HOOKS
 
 ;; Not a save hook because it is too slow.
