@@ -116,7 +116,6 @@
 (add-to-list 'auto-mode-alist '("\\.rst\\'" . rst-mode))
 
 ;; Enable mhtml-mode for .html files
-(require 'rst)
 (add-to-list 'auto-mode-alist '("\\.html\\'" . mhtml-mode))
 
 
@@ -126,6 +125,10 @@
 (add-hook 'python-mode-hook 'blacken-mode)
 (setq blacken-line-length 80)
 
+;; ido mode, fuzzy finding for files & buffers
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
 
 ;; SETTING PATH
 ;; golang
