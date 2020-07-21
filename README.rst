@@ -7,6 +7,10 @@ advanced support for several languages through `lsp-mode`_ . PR's are welcome!
 
 .. _lsp-mode: https://github.com/emacs-lsp/lsp-mode
 
+**DISCLAIMER**: This is very opinionated and made to suit my needs, so it may
+not fit yours. Most options are commented though, so you should be able to adapt
+the config to what suits you best.
+
 Installation
 ============
 
@@ -17,6 +21,14 @@ packages are installed.
 .. code-block:: shell
 
    $ git clone https://github.com/lukapeschke/emacs-config ~/.emacs.d
+
+Running
+=======
+
+I highly recommend to run emacs in daemon mode (I'm running it with a systemd
+user service, but it is not mandatory) in order to benefit from instant start
+times and shared clipboards, among others.
+
 
 Updating
 ========
