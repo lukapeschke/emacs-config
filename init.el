@@ -29,7 +29,8 @@
             elixir-mode flycheck gnu-elpa-keyring-update go-mode groovy-mode
             highlight-indentation jinja2-mode lsp-mode lsp-ui protobuf-mode
             pyvenv rainbow-delimiters rainbow-mode rust-mode sbt-mode scala-mode
-            terraform-mode tangotango-theme use-package whitespace yaml-mode)
+            terraform-mode tangotango-theme use-package web-mode whitespace
+            yaml-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun my-packages-installed-p ()
@@ -115,8 +116,12 @@
 (require 'rst)
 (add-to-list 'auto-mode-alist '("\\.rst\\'" . rst-mode))
 
-;; Enable mhtml-mode for .html files
-(add-to-list 'auto-mode-alist '("\\.html\\'" . mhtml-mode))
+;; Enable web-mode  for .html files
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(setq web-mode-enable-auto-closing t
+      web-mode-enable-auto-pairing t
+      web-mode-enable-current-column-highlight t
+      web-mode-enable-current-element-highlight t)
 
 
 ;; Enable indentation highlighting in python
@@ -230,4 +235,6 @@
  '(default ((t (:inherit nil :stipple nil :background "unspecified-bg" :foreground "color-252" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :foundry "default" :family "default"))))
  '(rst-level-1 ((t (:background "color-239"))))
  '(rst-level-2 ((t (:background "color-239"))))
- '(rst-level-3 ((t (:background "color-239")))))
+ '(rst-level-3 ((t (:background "color-239"))))
+ '(web-mode-html-tag-bracket-face ((t (:foreground "brightblack"))))
+ '(web-mode-html-tag-face ((t (:foreground "brightyellow" :weight bold)))))
