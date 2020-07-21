@@ -58,7 +58,18 @@ you're using pyenv, I believe there's native support in pyls for that.
 1. Run ``M-x pyvenv-activate`` (or ``M-x pyvenv-workon`` if you use
    virtualenvwrapper) in emacs and activate the desired venv.
 
-2. In a shell, run `kill pyls` (you can add your favourite signal).
+2. In a shell, run ``kill pyls`` (you can add your favourite signal).
 
 3. Emacs should prompt you to restart pyls. Restart it and your venv should be
    taken into account. You're done :-)
+
+Jump to definiton
++++++++++++++++++
+
+The config includes `dumb-jump`_ , which allows to jump to function definitions
+and is bound to ``M-.`` (alt key plus dot key) by default.
+
+For better performance, it is recommended to use **The silver searcher**
+(``ag``) or **ripgrep** (``rg``).
+
+.. _dumb-jump: https://github.com/jacktasia/dumb-jump
