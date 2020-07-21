@@ -79,6 +79,9 @@
 (setq scroll-step 1)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 
+;; disable menu bar, set to 1 to enable it
+(menu-bar-mode -1)
+
 ;; keybindings to toggle/wrap functions, use CTRL-c and arrow keys
 (add-hook 'prog-mode-hook
   (lambda()
