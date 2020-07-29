@@ -28,7 +28,7 @@
 (defvar my-packages
   '(blacken company dockerfile-mode dockerfile-mode drag-stuff dumb-jump
             elixir-mode flycheck gnu-elpa-keyring-update go-mode groovy-mode
-            highlight-indentation jinja2-mode json-mode lsp-mode lsp-ui
+            highlight-indentation jinja2-mode js2-mode json-mode lsp-mode lsp-ui
             protobuf-mode pyvenv rainbow-delimiters rainbow-mode rust-mode
             sbt-mode scala-mode terraform-mode tangotango-theme use-package
             web-mode whitespace yaml-mode)
@@ -115,6 +115,12 @@
   (unless (display-graphic-p (selected-frame))
     (set-face-background 'default "unspecified-bg" (selected-frame))))
 (add-hook 'window-setup-hook 'on-after-init)
+
+;; using js2-minor-mode for linting but js-mode for syntax highlighting
+;; (js2-mode is slow af for highlighting, guess it's doing a lot of stuff
+;; I don't need behind the scenes)
+(require 'js2-mode)
+(add-hook 'js-mode-hook 'js2-minor-mode)
 
 ;; Enable rst-mode for .rst files
 (require 'rst)
@@ -230,7 +236,7 @@
  '(groovy-indent-offset 2)
  '(package-selected-packages
    (quote
-    (json-mode dumb-jump pyvenv rainbow-mode sbt-mode scala-mode blacken groovy-mode protobuf-mode elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company))))
+    (js2-mode json-mode dumb-jump pyvenv rainbow-mode sbt-mode scala-mode blacken groovy-mode protobuf-mode elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
