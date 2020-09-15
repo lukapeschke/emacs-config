@@ -179,6 +179,8 @@
         lsp-prefer-capf t ;; use company-capf
         lsp-enable-snippet nil ;; Disable Yasnippet
         lsp-pyls-plugins-pylint-enabled t
+        gc-cons-threshold 100000000
+        read-process-output-max (* 1024 1024)
         )
 
   ;; add your languages here
