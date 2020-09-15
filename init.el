@@ -73,7 +73,8 @@
 (require 'whitespace)
 (setq whitespace-style
       (quote (face trailing tab-mark lines-tail)))
-(add-hook 'find-file-hook 'whitespace-mode)
+
+(add-hook 'prog-mode-hook 'whitespace-mode)
 
 ;; scroll only one line at once
 (setq mouse-wheel-progressive-speed nil)
