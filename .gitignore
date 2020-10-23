@@ -3,3 +3,4 @@ elpa
 auto-save-list
 .lsp-session-v1
 ido.last
+.cache

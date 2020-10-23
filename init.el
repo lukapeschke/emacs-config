@@ -27,7 +27,7 @@
 
 (defvar my-packages
   '(blacken company dockerfile-mode dockerfile-mode drag-stuff dumb-jump
-            elixir-mode flycheck gnu-elpa-keyring-update go-mode groovy-mode
+            elixir-mode flycheck flycheck-pycheckers gnu-elpa-keyring-update go-mode groovy-mode
             highlight-indentation jinja2-mode js2-mode json-mode lsp-mode lsp-ui
             protobuf-mode py-isort pyvenv rainbow-delimiters rainbow-mode rust-mode
             sbt-mode scala-mode terraform-mode tangotango-theme use-package
@@ -179,10 +179,8 @@
 (use-package lsp-mode
   :config
 
-  (setq lsp-prefer-flymake nil ;; Prefer using lsp-ui (flycheck) over flymake.
-        lsp-prefer-capf t ;; use company-capf
+  (setq lsp-prefer-capf t ;; use company-capf
         lsp-enable-snippet nil ;; Disable Yasnippet
-        lsp-pyls-plugins-pylint-enabled t
         gc-cons-threshold 100000000
         read-process-output-max (* 1024 1024)
         )
@@ -196,6 +194,22 @@
   ;; "metals" is assumed to be available in $PATH
   (add-hook 'scala-mode-hook #'lsp)
   )
+
+
+;; We use microsoft's language server as it is MUCH faster than palantir's
+;; python-language-server
+(use-package lsp-python-ms
+  :ensure t
+  :init
+  ;; Will install the ms lsp automatically, set to nil to disable
+  (setq lsp-python-ms-auto-install-server t)
+  :config
+  :hook
+  ((python-mode . (lambda ()
+                    (require 'lsp-python-ms)
+                    (lsp-deferred)
+                ))))
+
 
 ;; lsp-ui allows (between other things) to display linter errors inline
 (use-package lsp-ui
@@ -226,6 +240,16 @@
   (global-company-mode 1)
 
   (global-set-key (kbd "C-<tab>") 'company-complete))
+
+
+;; For python mode only, explicitly add python-pylint (which also adds mypy) to
+;; the list of flycheck checkers. lsp-ui override's flycheck's checker
+;; with "lsp" only
+(add-hook 'python-mode-hook
+          (lambda ()
+            (add-hook 'lsp-after-initialize-hook
+                      (lambda()(flycheck-add-next-checker 'lsp 'python-pylint)))))
+
 ;; END -- Support for Language Server Protocol (LSP)
 
 

@@ -41,7 +41,7 @@ Updating
 Supported languages
 ===================
 
-* Python. Depends on pylint_ and pyls_ . You can optionally install black_ ,
+* Python. Depends on pylint_, mypy_ and ms-pyls_ . You can optionally install black_ ,
   which will format your python code on save.
 
 * Rust. Depends on rls_ .
@@ -51,7 +51,8 @@ Supported languages
 * Elixir. Depends on ElixirLS_ .
 
 .. _pylint: https://www.pylint.org/
-.. _pyls: https://github.com/palantir/python-language-server
+.. _mypy: https://mypy.readthedocs.io/
+.. _ms-pyls: https://github.com/microsoft/python-language-server
 .. _black: https://github.com/psf/black
 .. _rls: https://github.com/rust-lang/rls
 .. _gopls: https://github.com/golang/tools/blob/master/gopls/doc/user.md
@@ -60,20 +61,6 @@ Supported languages
 
 Notes
 =====
-
-Python virtualenvs
-++++++++++++++++++
-
-In case you're using vanilla virtualenvs like me, I use the following hack. If
-you're using pyenv, I believe there's native support in pyls for that.
-
-1. Run ``M-x pyvenv-activate`` (or ``M-x pyvenv-workon`` if you use
-   virtualenvwrapper) in emacs and activate the desired venv.
-
-2. In a shell, run ``kill pyls`` (you can add your favourite signal).
-
-3. Emacs should prompt you to restart pyls. Restart it and your venv should be
-   taken into account. You're done :-)
 
 Jump to definiton
 +++++++++++++++++
