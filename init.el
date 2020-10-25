@@ -93,11 +93,14 @@
     (local-set-key (kbd "C-c <down>")  'hs-show-all)
     (hs-minor-mode t)))
 
+;; Bind C-x C-a to eXecute Action
+(add-hook 'prog-mode-hook
+  (lambda()
+    (local-set-key (kbd "C-x C-a") 'lsp-execute-code-action)))
+
+
 ;; remove all trailing whitespaces when saving
 (add-hook 'before-save-hook 'whitespace-cleanup)
-
-;; set JSON and JavaScript indentation to 2
-(setq js-indent-level 2)
 
 ;; allows to drag a selected area around
 (require 'drag-stuff)
@@ -160,6 +163,9 @@
 ;; golang
 (setq gofmt-command "goimports")
 (add-hook 'before-save-hook 'gofmt-before-save)
+
+;; set JSON and JavaScript indentation to 2
+(setq js-indent-level 2)
 
 ;; rust
 (setq rust-format-on-save t)
