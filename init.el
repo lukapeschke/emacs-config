@@ -160,9 +160,13 @@
 ;; golang
 (setq gofmt-command "goimports")
 (add-hook 'before-save-hook 'gofmt-before-save)
+
 ;; rust
 (setq rust-format-on-save t)
 (setq lsp-rust-server 'rust-analyzer)
+(setq lsp-rust-analyzer-server-display-inlay-hints t)
+(setq lsp-rust-analyzer-display-chaining-hints t)
+
 ;; python
 (require 'py-isort)
 (add-hook 'before-save-hook 'py-isort-before-save) ;; sorting imports on save
