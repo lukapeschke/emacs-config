@@ -50,6 +50,8 @@ Supported languages
 
 * Elixir. Depends on ElixirLS_ .
 
+* Scala. Depends on MetaLS_ .
+
 .. _pylint: https://www.pylint.org/
 .. _mypy: https://mypy.readthedocs.io/
 .. _ms-pyls: https://github.com/microsoft/python-language-server
@@ -57,6 +59,7 @@ Supported languages
 .. _rls: https://github.com/rust-lang/rls
 .. _gopls: https://github.com/golang/tools/blob/master/gopls/doc/user.md
 .. _ElixirLS: https://github.com/JakeBecker/elixir-ls
+.. _MetaLS: https://scalameta.org/metals/docs/editors/emacs.html
 
 
 Notes
