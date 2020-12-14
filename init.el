@@ -137,11 +137,6 @@
       web-mode-enable-current-column-highlight t
       web-mode-enable-current-element-highlight t)
 
-;; Enable indentation highlighting in python
-(add-hook 'python-mode-hook 'highlight-indentation-mode)
-;; Enable black formatting in python
-(add-hook 'python-mode-hook 'blacken-mode)
-(setq blacken-line-length 80)
 
 ;; ido mode, fuzzy finding for files & buffers
 (setq ido-enable-flex-matching t)
@@ -175,6 +170,12 @@
 
 ;; python
 (require 'py-isort)
+(add-hook 'before-save-hook 'py-isort-before-save) ;; sorting imports on save
+;; Enable indentation highlighting in python
+(add-hook 'python-mode-hook 'highlight-indentation-mode)
+;; Enable black formatting in python
+(add-hook 'python-mode-hook 'blacken-mode)
+(setq blacken-line-length 80)
 (add-hook 'before-save-hook 'py-isort-before-save) ;; sorting imports on save
 
 ;; END OF ON SAVE HOOKS
