@@ -176,15 +176,16 @@
 ;; Enable black formatting in python
 (add-hook 'python-mode-hook 'blacken-mode)
 (setq blacken-line-length 80)
-(add-hook 'before-save-hook 'py-isort-before-save) ;; sorting imports on save
+
+;; scala
+(defun scala-mode-format-on-save-hook ()
+  (when (eq major-mode 'scala-mode)
+    (lsp-format-buffer)))
+
+(add-hook 'before-save-hook 'scala-mode-format-on-save-hook) ;; sorting imports on save
+
 
 ;; END OF ON SAVE HOOKS
-
-;; Not a save hook because it is too slow.
-(defun run-scalafmt ()
-  (interactive)
-  (when (eq major-mode 'scala-mode)
-    (shell-command-on-region (point-min) (point-max) "~/bin/scalafmt --stdin --non-interactive --quiet" t t)))
 
 ;; START -- Support for Language Server Protocol (LSP)
 (use-package lsp-mode
