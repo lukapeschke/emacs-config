@@ -46,8 +46,9 @@
   (dolist (p my-packages)
     (when (not (package-installed-p p))
       (package-install p))))
-
 ;; end of package installation
+
+;; VARIOUS
 
 ;; matching {} [] () in the same color
 (require 'rainbow-delimiters)
@@ -98,9 +99,15 @@
   (lambda()
     (local-set-key (kbd "C-x C-a") 'lsp-execute-code-action)))
 
+;; List flycheck errors on C-x C-e
+(add-hook 'prog-mode-hook
+  (lambda()
+    (local-set-key (kbd "C-x C-e") 'flycheck-list-errors)))
+
 
 ;; remove all trailing whitespaces when saving
 (add-hook 'before-save-hook 'whitespace-cleanup)
+
 
 ;; allows to drag a selected area around
 (require 'drag-stuff)
@@ -119,6 +126,8 @@
   (unless (display-graphic-p (selected-frame))
     (set-face-background 'default "unspecified-bg" (selected-frame))))
 (add-hook 'window-setup-hook 'on-after-init)
+
+;; END OF VARIOUS
 
 ;; using js2-minor-mode for linting but js-mode for syntax highlighting
 ;; (js2-mode is slow af for highlighting, guess it's doing a lot of stuff
@@ -183,9 +192,9 @@
     (lsp-format-buffer)))
 
 (add-hook 'before-save-hook 'scala-mode-format-on-save-hook) ;; sorting imports on save
-
-
 ;; END OF ON SAVE HOOKS
+
+
 
 ;; START -- Support for Language Server Protocol (LSP)
 (use-package lsp-mode
