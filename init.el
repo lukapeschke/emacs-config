@@ -57,9 +57,10 @@
 ;; automatically make pairs for (), [] and {}, and automatically
 ;; delete pairs
 (electric-pair-mode 1)
-
 ;; Highlight matching (), {}, and []
 (show-paren-mode 1)
+;; display line AND column in bottom bar
+(setq column-number-mode t)
 
 ;; Highlight indentation
 (require 'highlight-indentation)
