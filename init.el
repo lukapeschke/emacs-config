@@ -53,7 +53,6 @@
 ;; matching {} [] () in the same color
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-
 ;; automatically make pairs for (), [] and {}, and automatically
 ;; delete pairs
 (electric-pair-mode 1)
@@ -62,12 +61,19 @@
 (show-paren-mode 1)
 ;; display line AND column in bottom bar
 (setq column-number-mode t)
+;; Make CamelCase bevahe as two words: Camel and Case
+(subword-mode 1)
+
+;; automatically goes to a new line when a certain length is reached (useful for
+;; comments). Break at 80 by default, but can be customized here
+(add-hook 'prog-mode-hook #'auto-fill-mode)
+(setq-default fill-column 80)
 
 ;; Highlight indentation
 (require 'highlight-indentation)
 (set-face-background 'highlight-indentation-face "#333333")
 
-;; Uncomment this lines to get a spaces-only indentation
+;; Uncomment this line to get a spaces-only indentation
 (setq-default indent-tabs-mode nil)
 
 ;; Make characters after column 80 purple and trailing spaces red
