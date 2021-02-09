@@ -51,8 +51,9 @@
 ;; VARIOUS
 
 ;; matching {} [] () in the same color
-(require 'rainbow-delimiters)
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+(use-package rainbow-delimiters
+  :config
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 ;; automatically make pairs for (), [] and {}, and automatically
 ;; delete pairs
 (electric-pair-mode 1)
@@ -70,8 +71,9 @@
 (setq-default fill-column 80)
 
 ;; Highlight indentation
-(require 'highlight-indentation)
-(set-face-background 'highlight-indentation-face "#333333")
+(use-package highlight-indentation
+  :config
+  (set-face-background 'highlight-indentation-face "#333333"))
 
 ;; Uncomment this line to get a spaces-only indentation
 (setq-default indent-tabs-mode nil)
@@ -79,9 +81,9 @@
 ;; Make characters after column 80 purple and trailing spaces red
 ;; This also shows tabulations, delete 'tab-mark' from the lines below to
 ;; cancel this
-(require 'whitespace)
-(setq whitespace-style
-      (quote (face trailing tab-mark lines-tail)))
+(use-package whitespace
+  :config
+  (setq whitespace-style '(face trailing tab-mark lines-tail)))
 
 (add-hook 'prog-mode-hook 'whitespace-mode)
 
@@ -116,16 +118,13 @@
 ;; remove all trailing whitespaces when saving
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
-
-;; allows to drag a selected area around
-(require 'drag-stuff)
-
 ;; keybindings to move stuff around, use Meta (alt) and arrow keys
-(global-set-key (kbd "<M-up>")    'drag-stuff-up)
-(global-set-key (kbd "<M-down>")  'drag-stuff-down)
-(global-set-key (kbd "<M-left>")  'drag-stuff-left)
-(global-set-key (kbd "<M-right>")  'drag-stuff-right)
-
+(use-package drag-stuff
+  :config
+  (global-set-key (kbd "<M-up>")    'drag-stuff-up)
+  (global-set-key (kbd "<M-down>")  'drag-stuff-down)
+  (global-set-key (kbd "<M-left>")  'drag-stuff-left)
+  (global-set-key (kbd "<M-right>")  'drag-stuff-right))
 
 ;; nice theme
 (load-theme 'tangotango t)
@@ -140,12 +139,14 @@
 ;; using js2-minor-mode for linting but js-mode for syntax highlighting
 ;; (js2-mode is slow af for highlighting, guess it's doing a lot of stuff
 ;; I don't need behind the scenes)
-(require 'js2-mode)
-(add-hook 'js-mode-hook 'js2-minor-mode)
+(use-package js2-mode
+  :config
+  (add-hook 'js-mode-hook 'js2-minor-mode))
 
 ;; Enable rst-mode for .rst files
-(require 'rst)
-(add-to-list 'auto-mode-alist '("\\.rst\\'" . rst-mode))
+(use-package rst
+  :config
+  (add-to-list 'auto-mode-alist '("\\.rst\\'" . rst-mode)))
 
 ;; Enable web-mode  for .html files
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
