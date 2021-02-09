@@ -58,6 +58,7 @@
 ;; delete pairs
 (electric-pair-mode 1)
 ;; Highlight matching (), {}, and []
+(setq show-paren-delay 0)
 (show-paren-mode 1)
 ;; display line AND column in bottom bar
 (setq column-number-mode t)
