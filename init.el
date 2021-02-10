@@ -64,6 +64,8 @@
 (setq column-number-mode t)
 ;; Make CamelCase bevahe as two words: Camel and Case
 (subword-mode 1)
+;; Delegate cursor behaviour handling to the terminal
+(setq visible-cursor nil)
 
 ;; automatically goes to a new line when a certain length is reached (useful for
 ;; comments). Break at 80 by default, but can be customized here
