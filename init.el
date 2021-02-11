@@ -68,9 +68,12 @@
 (setq visible-cursor nil)
 
 ;; automatically goes to a new line when a certain length is reached (useful for
-;; comments). Break at 80 by default, but can be customized here
+;; comments).
 (add-hook 'prog-mode-hook #'auto-fill-mode)
-(setq-default fill-column 80)
+;; Break at 80th char
+(setq fill-column 80
+      ;; only enable auto-fill for comments
+      comment-auto-fill-only-comments t)
 
 ;; Highlight indentation
 (use-package highlight-indentation
