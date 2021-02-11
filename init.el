@@ -214,11 +214,15 @@
 (use-package lsp-mode
   :config
 
-  (setq lsp-prefer-capf t ;; use company-capf
-        lsp-enable-snippet nil ;; Disable Yasnippet
-        gc-cons-threshold 100000000
-        read-process-output-max (* 1024 1024)
-        )
+  (setq
+   ;; use company-capf
+   lsp-prefer-capf t
+   ;; Disable Yasnippet
+   lsp-enable-snippet nil
+   gc-cons-threshold 100000000
+   read-process-output-max (* 1024 1024)
+   ;; disable breadcrumbs on top of window
+   lsp-headerline-breadcrumb-enable nil)
 
   ;; add your languages here
   (add-hook 'python-mode-hook #'lsp)
