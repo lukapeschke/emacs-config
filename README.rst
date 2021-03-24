@@ -52,6 +52,8 @@ Supported languages
 
 * Scala. Depends on MetaLS_ .
 
+* JavaScript/TypeScript. Depends on deno_ .
+
 .. _pylint: https://www.pylint.org/
 .. _mypy: https://mypy.readthedocs.io/
 .. _ms-pyls: https://github.com/microsoft/python-language-server
@@ -60,6 +62,7 @@ Supported languages
 .. _gopls: https://github.com/golang/tools/blob/master/gopls/doc/user.md
 .. _ElixirLS: https://github.com/JakeBecker/elixir-ls
 .. _MetaLS: https://scalameta.org/metals/docs/editors/emacs.html
+.. _deno: https://deno.land/
 
 
 Notes
