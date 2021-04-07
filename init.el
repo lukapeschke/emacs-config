@@ -158,6 +158,13 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
+
+;; disable lock files
+(setq create-lockfiles nil)
+;; put backup files in .emacs/backups
+(setq backup-directory-alist
+      `(("." . ,(concat user-emacs-directory "backups"))))
+
 ;; END OF VARIOUS
 
 ;; SETTING PATH
