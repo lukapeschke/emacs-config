@@ -186,18 +186,19 @@
 (add-hook 'before-save-hook 'gofmt-before-save)
 
 ;; JS& TS
-(setq js-indent-level 2)
-(setq typescript-indent-level 2)
-(setq lsp-clients-deno-server "~/.deno/bin/deno")
 (use-package deno-fmt
-  :config (add-hook 'typescript-mode-hook 'deno-fmt-mode)
-  (add-hook 'js-mode-hook 'deno-fmt-mode))
+  :config
+  (add-hook 'typescript-mode-hook 'deno-fmt-mode)
+  (add-hook 'js-mode-hook 'deno-fmt-mode)
+  (setq js-indent-level 2
+        typescript-indent-level 2
+        lsp-clients-deno-server "~/.deno/bin/deno"))
 
 ;; rust
-(setq rust-format-on-save t)
-(setq lsp-rust-server 'rust-analyzer)
-(setq lsp-rust-analyzer-server-display-inlay-hints t)
-(setq lsp-rust-analyzer-display-chaining-hints t)
+(setq rust-format-on-save t
+      lsp-rust-server 'rust-analyzer
+      lsp-rust-analyzer-server-display-inlay-hints t
+      lsp-rust-analyzer-display-chaining-hints t)
 
 ;; python
 (require 'py-isort)
