@@ -325,3 +325,4 @@
  '(rst-level-3 ((t (:background "color-239"))))
  '(web-mode-html-tag-bracket-face ((t (:foreground "brightblack"))))
  '(web-mode-html-tag-face ((t (:foreground "brightyellow" :weight bold)))))
+(put 'upcase-region 'disabled nil)
