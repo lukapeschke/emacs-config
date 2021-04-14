@@ -63,7 +63,7 @@
 ;; display line AND column in bottom bar
 (setq column-number-mode t)
 ;; Make CamelCase bevahe as two words: Camel and Case
-(subword-mode 1)
+(add-hook 'prog-mode-hook 'subword-mode)
 ;; Delegate cursor behaviour handling to the terminal
 (setq visible-cursor nil)
 
