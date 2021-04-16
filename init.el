@@ -30,8 +30,8 @@
             elixir-mode flycheck flycheck-pycheckers gnu-elpa-keyring-update go-mode groovy-mode
             highlight-indentation jinja2-mode lsp-metals lsp-mode lsp-ui
             protobuf-mode py-isort pyvenv rainbow-delimiters rainbow-mode rust-mode
-            sbt-mode scala-mode terraform-mode tangotango-theme typescript-mode use-package
-            web-mode whitespace yaml-mode)
+            sbt-mode scala-mode string-inflection terraform-mode tangotango-theme typescript-mode
+            use-package web-mode whitespace yaml-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun my-packages-installed-p ()
@@ -164,6 +164,20 @@
 ;; put backup files in .emacs/backups
 (setq backup-directory-alist
       `(("." . ,(concat user-emacs-directory "backups"))))
+
+;; Allow to cycle between string cases on C-c C-u
+(defun java-style-string-cycle ()
+  (local-set-key (kbd "C-c C-u") 'string-inflection-java-style-cycle))
+
+(defun python-style-string-cycle ()
+  (local-set-key (kbd "C-c C-u") 'string-inflection-python-style-cycle))
+
+(use-package string-inflection
+  :config
+  (add-hook 'python-mode-hook 'python-style-string-cycle)
+  (add-hook 'scala-mode-hook 'java-style-string-cycle)
+  (add-hook 'js-mode-hook 'java-style-string-cycle)
+  (add-hook 'typescript-mode-hook 'java-style-string-cycle))
 
 ;; END OF VARIOUS
 
@@ -313,7 +327,7 @@
    '("713f898dd8c881c139b62cf05b7ac476d05735825d49006255c0a31f9a4f46ab" default))
  '(groovy-indent-offset 2)
  '(package-selected-packages
-   '(lsp-metals py-isort dumb-jump pyvenv rainbow-mode sbt-mode scala-mode blacken groovy-mode protobuf-mode elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company)))
+   '(string-inflection lsp-metals py-isort dumb-jump pyvenv rainbow-mode sbt-mode scala-mode blacken groovy-mode protobuf-mode elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

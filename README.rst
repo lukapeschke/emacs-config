@@ -78,3 +78,11 @@ For better performance, it is recommended to use **The silver searcher**
 (``ag``) or **ripgrep** (``rg``).
 
 .. _dumb-jump: https://github.com/jacktasia/dumb-jump
+
+String cases
+++++++++++++
+
+The `string-inflection`_ package is also included. It allows to cycle between string cases for the current term.
+By default, it is enabled for JS/TS and Scala (java cycle) and Python (python cycle)
+
+.. _string-inflection: https://github.com/akicho8/string-inflection
