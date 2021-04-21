@@ -28,7 +28,7 @@
 (defvar my-packages
   '(blacken company deno-fmt dockerfile-mode dockerfile-mode drag-stuff dumb-jump
             elixir-mode flycheck flycheck-pycheckers gnu-elpa-keyring-update go-mode groovy-mode
-            highlight-indentation jinja2-mode lsp-metals lsp-mode lsp-ui
+            highlight-indentation jinja2-mode lsp-metals lsp-mode lsp-ui multiple-cursors
             protobuf-mode py-isort pyvenv rainbow-delimiters rainbow-mode rust-mode
             sbt-mode scala-mode string-inflection terraform-mode tangotango-theme typescript-mode
             use-package web-mode whitespace yaml-mode)
@@ -179,6 +179,13 @@
   (add-hook 'js-mode-hook 'java-style-string-cycle)
   (add-hook 'typescript-mode-hook 'java-style-string-cycle))
 
+(use-package multiple-cursors
+  :config
+  (global-set-key (kbd "C-c C-c") 'mc/edit-lines)
+  (global-set-key (kbd "C-c >") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-c <") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c a") 'mc/mark-all-like-this))
+
 ;; END OF VARIOUS
 
 ;; SETTING PATH
@@ -327,7 +334,7 @@
    '("713f898dd8c881c139b62cf05b7ac476d05735825d49006255c0a31f9a4f46ab" default))
  '(groovy-indent-offset 2)
  '(package-selected-packages
-   '(string-inflection lsp-metals py-isort dumb-jump pyvenv rainbow-mode sbt-mode scala-mode blacken groovy-mode protobuf-mode elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company)))
+   '(multiple-cursors string-inflection lsp-metals py-isort dumb-jump pyvenv rainbow-mode sbt-mode scala-mode blacken groovy-mode protobuf-mode elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

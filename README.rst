@@ -87,3 +87,15 @@ By default, it is enabled for JS/TS and Scala (java cycle) and Python (python cy
 bound to ``C-c C-u``.
 
 .. _string-inflection: https://github.com/akicho8/string-inflection
+
+Multiple cursors
+++++++++++++++++
+
+Of course, the config includes `multiple-cursors`_. Following bindings are set:
+
+* ``C-c C-c`` -> ``mc/edit-lines``
+* ``C-c >`` -> ``mc/mark-next-like-this``
+* ``C-c <`` -> ``mc/mark-previous-like-this``
+* ``C-c a`` -> ``mc/mark-all-like-this``
+
+.. _multipole-cursors: https://github.com/magnars/multiple-cursors.el
