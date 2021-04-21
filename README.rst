@@ -83,7 +83,7 @@ String cases
 ++++++++++++
 
 The `string-inflection`_ package is also included. It allows to cycle between string cases for the current term.
-By default, it is enabled for JS/TS and Scala (java cycle) and Python (python cycle). The cycle command is
+By default, it is enabled for JS/TS and Scala (java cycle), Python and Rust (python cycle). The cycle command is
 bound to ``C-c C-u``.
 
 .. _string-inflection: https://github.com/akicho8/string-inflection

@@ -175,6 +175,7 @@
 (use-package string-inflection
   :config
   (add-hook 'python-mode-hook 'python-style-string-cycle)
+  (add-hook 'rust-mode-hook 'python-style-string-cycle)
   (add-hook 'scala-mode-hook 'java-style-string-cycle)
   (add-hook 'js-mode-hook 'java-style-string-cycle)
   (add-hook 'typescript-mode-hook 'java-style-string-cycle))
