@@ -28,7 +28,7 @@
 (defvar my-packages
   '(blacken company deno-fmt dockerfile-mode dockerfile-mode drag-stuff dumb-jump
             elixir-mode flycheck flycheck-pycheckers gnu-elpa-keyring-update go-mode groovy-mode
-            highlight-indentation jinja2-mode lsp-metals lsp-mode lsp-ui multiple-cursors
+            highlight-indentation jinja2-mode lsp-metals lsp-mode lsp-pyright lsp-ui multiple-cursors
             protobuf-mode py-isort pyvenv rainbow-delimiters rainbow-mode rust-mode
             sbt-mode scala-mode string-inflection terraform-mode tangotango-theme typescript-mode
             use-package web-mode whitespace yaml-mode)
@@ -200,6 +200,8 @@
 (add-to-list 'exec-path "~/bin/")
 ;; deno
 (add-to-list 'exec-path "~/.deno/bin")
+;; yarn
+(add-to-list 'exec-path "~/.yarn/bin")
 ;; END OF SETTING PATH
 
 ;; PER-LANGUAGE CONFIG & ON SAVE HOOKS
@@ -266,23 +268,38 @@
   (add-hook 'scala-mode-hook #'lsp)
   )
 
+;; Scala
+
 (use-package lsp-metals
   :config
   (setq lsp-metals-show-inferred-type t))
 
-;; We use microsoft's language server as it is MUCH faster than palantir's
 ;; python-language-server
-(use-package lsp-python-ms
+
+;; We use pyright as it is faster than palantir's
+;; python-language-server and more stable than microsoft's language
+;; server. However, it requires node to run. You can use microsoft's
+;; LS instead by uncommenting the block below and commenting the
+;; lsp-pyright block. You'll also have to updater the required packages
+
+;; (use-package lsp-python-ms
+;;   :ensure t
+;;   :init
+;;   ;; Will install the ms lsp automatically, set to nil to disable
+;;   (setq lsp-python-ms-auto-install-server t)
+;;   :config
+;;   :hook
+;;   ((python-mode . (lambda ()
+;;                     (require 'lsp-python-ms)
+;;                     (lsp-deferred)
+;;                 ))))
+
+
+(use-package lsp-pyright
   :ensure t
-  :init
-  ;; Will install the ms lsp automatically, set to nil to disable
-  (setq lsp-python-ms-auto-install-server t)
-  :config
-  :hook
-  ((python-mode . (lambda ()
-                    (require 'lsp-python-ms)
-                    (lsp-deferred)
-                ))))
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp))))
 
 
 ;; lsp-ui allows (between other things) to display linter errors inline
