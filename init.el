@@ -165,6 +165,10 @@
 (setq backup-directory-alist
       `(("." . ,(concat user-emacs-directory "backups"))))
 
+;; put autosave files in .emacs/auto-saves
+(setq auto-save-file-name-transforms
+  `((".*" ,(concat user-emacs-directory "auto-saves/") t)))
+
 ;; Allow to cycle between string cases on C-c C-u
 (defun java-style-string-cycle ()
   (local-set-key (kbd "C-c C-u") 'string-inflection-java-style-cycle))
