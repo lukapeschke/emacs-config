@@ -266,6 +266,9 @@
   (add-hook 'scala-mode-hook #'lsp)
   )
 
+(use-package lsp-metals
+  :config
+  (setq lsp-metals-show-inferred-type t))
 
 ;; We use microsoft's language server as it is MUCH faster than palantir's
 ;; python-language-server
