@@ -206,6 +206,8 @@
 (add-to-list 'exec-path "~/.deno/bin")
 ;; yarn
 (add-to-list 'exec-path "~/.yarn/bin")
+;; elixir
+(add-to-list 'exec-path "~/bin/elixirls/")
 ;; END OF SETTING PATH
 
 ;; PER-LANGUAGE CONFIG & ON SAVE HOOKS
