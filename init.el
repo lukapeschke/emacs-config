@@ -27,11 +27,11 @@
 
 (defvar my-packages
   '(blacken company deno-fmt dockerfile-mode dockerfile-mode drag-stuff dumb-jump
-            elixir-mode flycheck flycheck-pycheckers gnu-elpa-keyring-update go-mode groovy-mode
-            highlight-indentation jinja2-mode lsp-metals lsp-mode lsp-pyright lsp-ui multiple-cursors
-            protobuf-mode py-isort pyvenv rainbow-delimiters rainbow-mode rust-mode
-            sbt-mode scala-mode string-inflection terraform-mode tangotango-theme typescript-mode
-            use-package web-mode whitespace yaml-mode)
+            elixir-mode flycheck flycheck-kotlin flycheck-pycheckers gnu-elpa-keyring-update
+            go-mode groovy-mode highlight-indentation jinja2-mode kotlin-mode lsp-metals lsp-mode
+            lsp-pyright lsp-ui multiple-cursors protobuf-mode py-isort pyvenv rainbow-delimiters
+            rainbow-mode rust-mode sbt-mode scala-mode string-inflection terraform-mode tangotango-theme
+            typescript-mode use-package web-mode whitespace yaml-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun my-packages-installed-p ()
@@ -272,6 +272,8 @@
   (add-hook 'elixir-mode-hook #'lsp)
   ;; "metals" is assumed to be available in $PATH
   (add-hook 'scala-mode-hook #'lsp)
+  ;; "kotlin-language-server" is assumed to be available in $PATH
+  (add-hook 'kotlin-mode-hook #'lsp)
   )
 
 ;; Scala
@@ -361,7 +363,7 @@
    '("713f898dd8c881c139b62cf05b7ac476d05735825d49006255c0a31f9a4f46ab" default))
  '(groovy-indent-offset 2)
  '(package-selected-packages
-   '(multiple-cursors string-inflection lsp-metals py-isort dumb-jump pyvenv rainbow-mode sbt-mode scala-mode blacken groovy-mode protobuf-mode elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company)))
+   '(kotlin-mode multiple-cursors string-inflection lsp-metals py-isort dumb-jump pyvenv rainbow-mode sbt-mode scala-mode blacken groovy-mode protobuf-mode elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

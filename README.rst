@@ -52,7 +52,10 @@ Supported languages
 
 * Scala. Depends on MetaLS_ .
 
-* JavaScript/TypeScript. Depends on deno_ .
+* JavaScript/TypeScript. Depends either on deno_ or any other JS/TS language server.
+
+* Kotlin. Depends on kotlin-language-server_.
+
 
 .. _pylint: https://www.pylint.org/
 .. _mypy: https://mypy.readthedocs.io/
@@ -63,7 +66,7 @@ Supported languages
 .. _ElixirLS: https://github.com/JakeBecker/elixir-ls
 .. _MetaLS: https://scalameta.org/metals/docs/editors/emacs.html
 .. _deno: https://deno.land/
-
+.. _kotlin-language-server: https://github.com/fwcd/kotlin-language-server
 
 Notes
 =====
