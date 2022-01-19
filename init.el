@@ -151,7 +151,8 @@
 (setq web-mode-enable-auto-closing t
       web-mode-enable-auto-pairing t
       web-mode-enable-current-column-highlight t
-      web-mode-enable-current-element-highlight t)
+      web-mode-enable-current-element-highlight t
+      web-mode-markup-indent-offset 2)
 
 
 ;; ido mode, fuzzy finding for files & buffers
