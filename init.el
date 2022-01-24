@@ -88,7 +88,9 @@
 ;; cancel this
 (use-package whitespace
   :config
-  (setq whitespace-style '(face trailing tab-mark lines-tail)))
+  (setq whitespace-style '(face trailing tab-mark lines-tail))
+  ;; Allowing lines of up to 100 chars
+  (setq whitespace-line-column 101))
 
 (add-hook 'prog-mode-hook 'whitespace-mode)
 
