@@ -265,6 +265,11 @@
    ;; disable breadcrumbs on top of window
    lsp-headerline-breadcrumb-enable nil)
 
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.direnv\\'")
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.git\\'")
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\__pycache__\\'")
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\_build\\'")
+
   ;; add your languages here
   (add-hook 'python-mode-hook #'lsp)
   (add-hook 'rust-mode-hook #'lsp)
