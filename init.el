@@ -250,8 +250,9 @@
 ;; Enable indentation highlighting in python
 (add-hook 'python-mode-hook 'highlight-indentation-mode)
 ;; Enable black formatting in python
-(add-hook 'python-mode-hook 'blacken-mode)
-(setq blacken-line-length 80)
+(use-package blacken
+  :config
+  (add-hook 'python-mode-hook 'blacken-mode))
 
 ;; scala
 (defun scala-mode-format-on-save-hook ()
