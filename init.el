@@ -64,7 +64,6 @@
   :config
   (counsel-mode 1)
   (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
-  (setq counsel-find-file-ignore-regexp "\\.")
   )
 
 ;; matching {} [] () in the same color
@@ -173,12 +172,6 @@
       web-mode-enable-current-column-highlight t
       web-mode-enable-current-element-highlight t
       web-mode-markup-indent-offset 2)
-
-
-;; ido mode, fuzzy finding for files & buffers
-;; (setq ido-enable-flex-matching t)
-;; (setq ido-everywhere t)
-;; (ido-mode 1)
 
 ;; disable lock files
 (setq create-lockfiles nil)
