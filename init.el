@@ -29,7 +29,7 @@
   '(blacken company counsel deno-fmt dockerfile-mode dockerfile-mode drag-stuff dumb-jump
             elixir-mode flycheck flycheck-kotlin flycheck-pycheckers gnu-elpa-keyring-update
             go-mode groovy-mode highlight-indentation ivy jinja2-mode kotlin-mode lsp-metals lsp-mode
-            lsp-pyright lsp-ui multiple-cursors protobuf-mode py-isort pyvenv rainbow-delimiters
+            lsp-pyright lsp-ui multiple-cursors prettier protobuf-mode py-isort pyvenv rainbow-delimiters
             rainbow-mode rust-mode sbt-mode scala-mode string-inflection swiper terraform-mode
             tangotango-theme typescript-mode use-package web-mode whitespace yaml-mode)
   "A list of packages to ensure are installed at launch.")
@@ -100,7 +100,7 @@
 ;; Uncomment this line to get a spaces-only indentation
 (setq-default indent-tabs-mode nil)
 
-;; Make characters after column 80 purple and trailing spaces red
+;; Make characters after column 101 purple and trailing spaces red
 ;; This also shows tabulations, delete 'tab-mark' from the lines below to
 ;; cancel this
 (use-package whitespace
@@ -230,13 +230,10 @@
 (add-hook 'before-save-hook 'gofmt-before-save)
 
 ;; JS& TS
-(use-package deno-fmt
+(use-package prettier
   :config
-  (add-hook 'typescript-mode-hook 'deno-fmt-mode)
-  (add-hook 'js-mode-hook 'deno-fmt-mode)
-  (setq js-indent-level 2
-        typescript-indent-level 2
-        lsp-clients-deno-server "~/.deno/bin/deno"))
+  (add-hook 'typescript-mode-hook 'prettier-mode)
+  (add-hook 'js-mode-hook 'prettier-mode))
 
 ;; rust
 (setq rust-format-on-save t
@@ -295,7 +292,6 @@
   ;; "kotlin-language-server" is assumed to be available in $PATH
   (add-hook 'kotlin-mode-hook #'lsp)
   )
-
 ;; Scala
 
 (use-package lsp-metals
@@ -381,18 +377,21 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    '("713f898dd8c881c139b62cf05b7ac476d05735825d49006255c0a31f9a4f46ab" default))
+ '(flycheck-checker-error-threshold 1000)
  '(groovy-indent-offset 2)
  '(package-selected-packages
-   '(counsel swiper ivy kotlin-mode multiple-cursors string-inflection lsp-metals py-isort dumb-jump pyvenv rainbow-mode sbt-mode scala-mode blacken groovy-mode protobuf-mode elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company)))
+   '(smartparens vue-mode prettier counsel swiper ivy kotlin-mode multiple-cursors string-inflection lsp-metals py-isort dumb-jump pyvenv rainbow-mode sbt-mode scala-mode blacken groovy-mode protobuf-mode elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "unspecified-bg" :foreground "color-252" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :foundry "default" :family "default"))))
+ '(error ((t (:foreground "Red1" :weight bold))))
  '(rst-level-1 ((t (:background "color-239"))))
  '(rst-level-2 ((t (:background "color-239"))))
  '(rst-level-3 ((t (:background "color-239"))))
  '(web-mode-html-tag-bracket-face ((t (:foreground "brightblack"))))
  '(web-mode-html-tag-face ((t (:foreground "brightyellow" :weight bold)))))
 (put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
