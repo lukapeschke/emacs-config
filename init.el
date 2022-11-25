@@ -31,7 +31,8 @@
             go-mode groovy-mode highlight-indentation ivy jinja2-mode kotlin-mode lsp-metals lsp-mode
             lsp-pyright lsp-ui multiple-cursors prettier protobuf-mode py-isort pyvenv rainbow-delimiters
             rainbow-mode rust-mode sbt-mode scala-mode string-inflection swiper terraform-mode
-            tangotango-theme typescript-mode use-package web-mode whitespace yaml-mode)
+            tangotango-theme tree-sitter tree-sitter-langs typescript-mode use-package web-mode
+            whitespace yaml-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun my-packages-installed-p ()
@@ -225,6 +226,12 @@
 ;; END OF SETTING PATH
 
 ;; PER-LANGUAGE CONFIG & ON SAVE HOOKS
+(use-package tree-sitter
+  :config
+  (global-tree-sitter-mode))
+
+(use-package tree-sitter-langs)
+
 ;; golang
 (setq gofmt-command "goimports")
 (add-hook 'before-save-hook 'gofmt-before-save)
