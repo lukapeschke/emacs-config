@@ -331,6 +331,7 @@
 (use-package lsp-pyright
   :ensure t
   :hook (python-mode . (lambda ()
+                         (add-to-list 'python-font-lock-keywords-level-2 '("match" "case"))
                           (require 'lsp-pyright)
                           (lsp))))
 
