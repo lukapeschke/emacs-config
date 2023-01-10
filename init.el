@@ -223,6 +223,8 @@
 (add-to-list 'exec-path "~/.yarn/bin")
 ;; elixir
 (add-to-list 'exec-path "~/bin/elixirls/")
+;; node installed with NVM
+(add-to-list 'exec-path "~/.nvm/versions/node/v18.12.1/bin/")
 ;; END OF SETTING PATH
 
 ;; PER-LANGUAGE CONFIG & ON SAVE HOOKS
