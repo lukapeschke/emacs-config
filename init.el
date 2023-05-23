@@ -30,9 +30,9 @@
             elixir-mode flycheck flycheck-kotlin flycheck-pycheckers gnu-elpa-keyring-update
             go-mode graphql-mode groovy-mode highlight-indentation ivy jinja2-mode kotlin-mode
             lsp-metals lsp-mode lsp-pyright lsp-ui multiple-cursors prettier protobuf-mode py-isort
-            pyvenv rainbow-delimiters rainbow-mode rust-mode sbt-mode scala-mode string-inflection
-            swiper terraform-mode tangotango-theme tree-sitter tree-sitter-langs typescript-mode
-            use-package web-mode whitespace yaml-mode)
+            python-mode pyvenv rainbow-delimiters rainbow-mode rust-mode sbt-mode scala-mode
+            string-inflection swiper terraform-mode tangotango-theme tree-sitter tree-sitter-langs
+            typescript-mode use-package web-mode whitespace yaml-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun my-packages-installed-p ()
@@ -251,6 +251,7 @@
       lsp-rust-analyzer-display-chaining-hints t)
 
 ;; python
+(use-package python-mode :init :config)
 (require 'py-isort)
 (add-hook 'before-save-hook 'py-isort-before-save) ;; sorting imports on save
 ;; Enable indentation highlighting in python
@@ -331,7 +332,6 @@
 (use-package lsp-pyright
   :ensure t
   :hook (python-mode . (lambda ()
-                         (add-to-list 'python-font-lock-keywords-level-2 '("match" "case"))
                           (require 'lsp-pyright)
                           (lsp))))
 
