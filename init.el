@@ -28,11 +28,11 @@
 (defvar my-packages
   '(blacken company counsel deno-fmt dockerfile-mode dockerfile-mode drag-stuff dumb-jump
             elixir-mode flycheck flycheck-kotlin flycheck-pycheckers gnu-elpa-keyring-update
-            go-mode groovy-mode highlight-indentation ivy jinja2-mode kotlin-mode lsp-metals lsp-mode
-            lsp-pyright lsp-ui multiple-cursors prettier protobuf-mode py-isort pyvenv rainbow-delimiters
-            rainbow-mode rust-mode sbt-mode scala-mode string-inflection swiper terraform-mode
-            tangotango-theme tree-sitter tree-sitter-langs typescript-mode use-package web-mode
-            whitespace yaml-mode)
+            go-mode graphql-mode groovy-mode highlight-indentation ivy jinja2-mode kotlin-mode
+            lsp-metals lsp-mode lsp-pyright lsp-ui multiple-cursors prettier protobuf-mode py-isort
+            pyvenv rainbow-delimiters rainbow-mode rust-mode sbt-mode scala-mode string-inflection
+            swiper terraform-mode tangotango-theme tree-sitter tree-sitter-langs typescript-mode
+            use-package web-mode whitespace yaml-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun my-packages-installed-p ()
@@ -390,7 +390,7 @@
  '(flycheck-checker-error-threshold 1000)
  '(groovy-indent-offset 2)
  '(package-selected-packages
-   '(smartparens vue-mode prettier counsel swiper ivy kotlin-mode multiple-cursors string-inflection lsp-metals py-isort dumb-jump pyvenv rainbow-mode sbt-mode scala-mode blacken groovy-mode protobuf-mode elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company)))
+   '(python-mode graphql-mode smartparens vue-mode prettier counsel swiper ivy kotlin-mode multiple-cursors string-inflection lsp-metals py-isort dumb-jump pyvenv rainbow-mode sbt-mode scala-mode blacken groovy-mode protobuf-mode elixir-mode yaml-mode use-package tangotango-theme terraform-mode rust-mode rainbow-delimiters lsp-ui jinja2-mode highlight-indentation gnu-elpa-keyring-update go-mode flycheck drag-stuff dockerfile-mode company-lsp company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
