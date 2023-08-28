@@ -247,7 +247,7 @@
 ;; rust
 (setq rust-format-on-save t
       lsp-rust-server 'rust-analyzer
-      lsp-rust-analyzer-server-display-inlay-hints t
+      lsp-inlay-hints-mode t
       lsp-rust-analyzer-display-chaining-hints t)
 
 ;; python
