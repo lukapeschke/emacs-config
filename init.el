@@ -254,6 +254,7 @@
 (use-package python-mode :init :config)
 (require 'py-isort)
 (add-hook 'before-save-hook 'py-isort-before-save) ;; sorting imports on save
+(setq py-isort-options '("--lines=100")) ;; 80 by default
 ;; Enable indentation highlighting in python
 (add-hook 'python-mode-hook 'highlight-indentation-mode)
 ;; Enable black formatting in python
