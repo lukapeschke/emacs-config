@@ -26,7 +26,7 @@
 ;; checking that use-package is installed:
 
 (defvar my-packages
-  '(blacken color-theme-sanityinc-tomorrow company counsel deno-fmt dockerfile-mode dockerfile-mode
+  '(blacken catppuccin-theme company counsel deno-fmt dockerfile-mode dockerfile-mode
             drag-stuff dumb-jump elixir-mode flycheck flycheck-kotlin flycheck-pycheckers
             gnu-elpa-keyring-update go-mode graphql-mode groovy-mode highlight-indentation ivy
             jinja2-mode kotlin-mode lsp-metals lsp-mode lsp-pyright lsp-ui multiple-cursors prettier
@@ -152,7 +152,12 @@
   (global-set-key (kbd "<M-right>")  'drag-stuff-right))
 
 ;; nice theme
-(load-theme 'sanityinc-tomorrow-night t)
+(use-package catppuccin-theme
+  :config
+  (load-theme 'catppuccin t)
+  (setq catppuccin-flavor 'frappe)
+  (catppuccin-reload))
+
 ;; keep the original background color, ie. transparent terminal
 (defun on-after-init ()
   (unless (display-graphic-p (selected-frame))
