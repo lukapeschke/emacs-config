@@ -407,6 +407,7 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "unspecified-bg" :foreground "color-252" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :foundry "default" :family "default"))))
  '(error ((t (:foreground "Red1" :weight bold))))
+ '(mode-line ((t (:background "brightblue" :foreground "black"))))
  '(rst-level-1 ((t (:background "color-239"))))
  '(rst-level-2 ((t (:background "color-239"))))
  '(rst-level-3 ((t (:background "color-239"))))
