@@ -26,12 +26,12 @@
 ;; checking that use-package is installed:
 
 (defvar my-packages
-  '(blacken company counsel deno-fmt dockerfile-mode dockerfile-mode drag-stuff dumb-jump
-            elixir-mode flycheck flycheck-kotlin flycheck-pycheckers gnu-elpa-keyring-update
-            go-mode graphql-mode groovy-mode highlight-indentation ivy jinja2-mode kotlin-mode
-            lsp-metals lsp-mode lsp-pyright lsp-ui multiple-cursors prettier protobuf-mode py-isort
-            python-mode pyvenv rainbow-delimiters rainbow-mode rust-mode sbt-mode scala-mode
-            string-inflection swiper terraform-mode tangotango-theme tree-sitter tree-sitter-langs
+  '(blacken color-theme-sanityinc-tomorrow company counsel deno-fmt dockerfile-mode dockerfile-mode
+            drag-stuff dumb-jump elixir-mode flycheck flycheck-kotlin flycheck-pycheckers
+            gnu-elpa-keyring-update go-mode graphql-mode groovy-mode highlight-indentation ivy
+            jinja2-mode kotlin-mode lsp-metals lsp-mode lsp-pyright lsp-ui multiple-cursors prettier
+            protobuf-mode py-isort python-mode pyvenv rainbow-delimiters rainbow-mode rust-mode
+            sbt-mode scala-mode string-inflection swiper terraform-mode tree-sitter tree-sitter-langs
             typescript-mode use-package web-mode whitespace yaml-mode)
   "A list of packages to ensure are installed at launch.")
 
@@ -96,7 +96,7 @@
 ;; Highlight indentation
 (use-package highlight-indentation
   :config
-  (set-face-background 'highlight-indentation-face "#333333"))
+  (set-face-background 'highlight-indentation-face "#444444"))
 
 ;; Uncomment this line to get a spaces-only indentation
 (setq-default indent-tabs-mode nil)
@@ -152,7 +152,7 @@
   (global-set-key (kbd "<M-right>")  'drag-stuff-right))
 
 ;; nice theme
-(load-theme 'tangotango t)
+(load-theme 'sanityinc-tomorrow-night t)
 ;; keep the original background color, ie. transparent terminal
 (defun on-after-init ()
   (unless (display-graphic-p (selected-frame))
