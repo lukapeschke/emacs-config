@@ -230,9 +230,12 @@
 ;; PER-LANGUAGE CONFIG & ON SAVE HOOKS
 (use-package tree-sitter
   :config
-  (global-tree-sitter-mode))
+  :hook ((after-init . global-tree-sitter-mode)
+         (tree-sitter-after-on . tree-sitter-hl-mode)))
 
-(use-package tree-sitter-langs)
+(use-package tree-sitter-langs
+  :demand t
+  :after tree-sitter)
 
 ;; golang
 (setq gofmt-command "goimports")
