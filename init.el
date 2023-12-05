@@ -256,7 +256,10 @@
 (setq rust-format-on-save t
       lsp-rust-server 'rust-analyzer
       lsp-inlay-hints-mode t
-      lsp-rust-analyzer-display-chaining-hints t)
+      lsp-inlay-hint-enable t
+      lsp-rust-analyzer-display-chaining-hints t
+      lsp-rust-analyzer-display-closure-return-type-hints t
+      lsp-rust-analyzer-display-parameter-hints t)
 
 ;; python
 (use-package python-mode :init :config)
