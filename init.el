@@ -29,7 +29,7 @@
   '(catppuccin-theme company counsel deno-fmt dockerfile-mode dockerfile-mode drag-stuff dumb-jump
             elixir-mode flycheck flycheck-kotlin flycheck-pycheckers format-all
             gnu-elpa-keyring-update go-mode graphql-mode groovy-mode highlight-indentation ivy
-            jinja2-mode kotlin-mode lsp-metals lsp-mode lsp-pyright lsp-ui multiple-cursors prettier
+            jinja2-mode kkp kotlin-mode lsp-metals lsp-mode lsp-pyright lsp-ui multiple-cursors prettier
             protobuf-mode py-isort python-mode pyvenv rainbow-delimiters rainbow-mode rust-mode
             sbt-mode scala-mode string-inflection swiper terraform-mode tree-sitter tree-sitter-langs
             typescript-mode use-package web-mode whitespace yaml-mode)
@@ -210,6 +210,12 @@
   (global-set-key (kbd "C-c >") 'mc/mark-next-like-this)
   (global-set-key (kbd "C-c <") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C-c a") 'mc/mark-all-like-this))
+
+;; Kitty Keyboard Protocol compat
+(use-package kkp
+  :ensure t
+  :config
+  (global-kkp-mode +1))
 
 ;; END OF VARIOUS
 
@@ -401,6 +407,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "unspecified-bg" :foreground "color-252" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :foundry "default" :family "default"))))
+ '(diff-added ((t (:inherit diff-changed :extend t :background "green4"))))
+ '(diff-removed ((t (:inherit diff-changed :extend t :background "firebrick"))))
  '(error ((t (:foreground "Red1" :weight bold))))
  '(font-lock-string-face ((t (:foreground "color-153"))))
  '(mode-line ((t (:background "brightblue" :foreground "black"))))
