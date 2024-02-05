@@ -16,9 +16,9 @@
 ;; package installation
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 (require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
 ;; forward compat for old emacs versions
 (require 'cl-lib)
@@ -26,8 +26,8 @@
 ;; checking that use-package is installed:
 
 (defvar my-packages
-  '(blacken catppuccin-theme company counsel deno-fmt dockerfile-mode dockerfile-mode
-            drag-stuff dumb-jump elixir-mode flycheck flycheck-kotlin flycheck-pycheckers
+  '(catppuccin-theme company counsel deno-fmt dockerfile-mode dockerfile-mode drag-stuff dumb-jump
+            elixir-mode flycheck flycheck-kotlin flycheck-pycheckers format-all
             gnu-elpa-keyring-update go-mode graphql-mode groovy-mode highlight-indentation ivy
             jinja2-mode kotlin-mode lsp-metals lsp-mode lsp-pyright lsp-ui multiple-cursors prettier
             protobuf-mode py-isort python-mode pyvenv rainbow-delimiters rainbow-mode rust-mode
@@ -242,6 +242,14 @@
   :demand t
   :after tree-sitter)
 
+;; formatting
+(use-package format-all
+ :commands format-all-mode
+ :hook (prog-mode . format-all-mode)
+ :config
+ (setq-default format-all-formatters '(("Python"     (ruff)))))
+
+
 ;; golang
 (setq gofmt-command "goimports")
 (add-hook 'before-save-hook 'gofmt-before-save)
@@ -263,15 +271,7 @@
 
 ;; python
 (use-package python-mode :init :config)
-(require 'py-isort)
-(add-hook 'before-save-hook 'py-isort-before-save) ;; sorting imports on save
-(setq py-isort-options '("--lines=100")) ;; 80 by default
-;; Enable indentation highlighting in python
 (add-hook 'python-mode-hook 'highlight-indentation-mode)
-;; Enable black formatting in python
-(use-package blacken
-  :config
-  (add-hook 'python-mode-hook 'blacken-mode))
 
 ;; scala
 (defun scala-mode-format-on-save-hook ()
@@ -379,14 +379,6 @@
   (global-set-key (kbd "C-<tab>") 'company-complete))
 
 
-;; For python mode only, explicitly add python-pylint (which also adds mypy) to
-;; the list of flycheck checkers. lsp-ui override's flycheck's checker
-;; with "lsp" only
-(add-hook 'python-mode-hook
-          (lambda ()
-            (add-hook 'lsp-after-initialize-hook
-                      (lambda()(flycheck-add-next-checker 'lsp 'python-pylint)))))
-
 ;; END -- Support for Language Server Protocol (LSP)
 
 
@@ -410,6 +402,7 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "unspecified-bg" :foreground "color-252" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :foundry "default" :family "default"))))
  '(error ((t (:foreground "Red1" :weight bold))))
+ '(font-lock-string-face ((t (:foreground "color-153"))))
  '(mode-line ((t (:background "brightblue" :foreground "black"))))
  '(rst-level-1 ((t (:background "color-239"))))
  '(rst-level-2 ((t (:background "color-239"))))
